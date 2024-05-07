@@ -13,7 +13,7 @@ Imagen DER:
 ![tiendaDER](https://github.com/fiorelladifiore/proyectoTiendaDeRopa/assets/166234882/94e68042-780f-4137-893d-70dbfcc0c548)
 
 Código SQL que genera la base de datos:
-
+```
 -- Table structure for table `ropa`
 --
 
@@ -82,3 +82,4 @@ ALTER TABLE `tienda`
 --
 ALTER TABLE `ropa`
   ADD CONSTRAINT `FK_ROPA_TIENDA` FOREIGN KEY (`id_tienda`) REFERENCES `tienda` (`id_tienda`);
+```
