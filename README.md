@@ -6,11 +6,13 @@ Integrantes: Di Fiore Fiorella (fiorella2difiore@gmail.com), Iriart Manuel (iria
 
 Temática: Tienda de ropa.
 
-Descripción de la temática: Página web de tienda de ropa que permite visualizar los productos de la misma.
+Descripción de la temática: Página web de tienda de ropa que permite visualizar e interactuar con los productos de la misma.
+
+La relación se encuentra en que una tienda tiene varias prendas de ropa y a esas prendas se le asigna la tienda indicada.
 
 Imagen DER:
 
-![tiendaDER](https://github.com/fiorelladifiore/proyectoTiendaDeRopa/assets/166234882/94e68042-780f-4137-893d-70dbfcc0c548)
+![tienda_DER](https://github.com/fiorelladifiore/proyectoTiendaDeRopa/assets/166234882/dcec315e-769b-45e3-8d53-8cc23eb617d6)
 
 Código SQL que genera la base de datos:
 ```
