@@ -8,7 +8,7 @@ Temática: Tienda de ropa.
 
 Descripción de la temática: Página web de tienda de ropa que permite visualizar e interactuar con los productos de la misma.
 
-La relación se encuentra en que una tienda tiene varias prendas de ropa y a esas prendas se le asigna la tienda indicada.
+La relación se encuentra en que una tienda tiene varias prendas de ropa y a esas prendas se le asigna la tienda indicada (FK).
 
 Imagen DER:
 
