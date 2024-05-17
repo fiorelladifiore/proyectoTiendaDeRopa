@@ -1,0 +1,16 @@
+.navbar-expand-lg {
+    background-color: rgb(44, 44, 44);
+}
+
+.navbar-brand{
+    color: rgb(209, 208, 208);
+}
+
+.nav-link{
+    color:rgb(226, 226, 226);
+}
+
+.carousel-inner{
+    width: 60%;
+    height: 500px;
+}
