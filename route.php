@@ -1,6 +1,7 @@
 <?php
 
 require_once "app/controller/homeController.php";
+require_once "app/controller/storesController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -17,13 +18,14 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new homeController();
             $controller->showingHome();
         break;
-        case 'products':
+        case 'clothes':
     //         echo "productos";
     //         break;
 
-    //     case 'stores':
-    //         echo "stores";
-    //         break;
+        case 'stores':
+            $controller = new storesController();
+            $controller->showingStores();
+            break;
 
       default:
     //     $err = new ErrController();

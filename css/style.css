@@ -1,16 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jaro:opsz@6..72&family=Monda:wght@700&display=swap');
+
+
+body {
+    background-color: rgb(32, 25, 25);
+}
 .navbar-expand-lg {
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(31, 9, 9);
 }
 
-.navbar-brand{
+.navbar-brand, .row{
     color: rgb(209, 208, 208);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .nav-link{
     color:rgb(226, 226, 226);
 }
 
-.carousel-inner{
-    width: 60%;
-    height: 500px;
+.nav-link:hover{
+    color: rgb(185, 82, 82)
 }
+
+
+.carrousel{
+    width: 55%;
+    height: auto;
+}
+
+.bd-footer {
+    display: flex;
+    background-color: rgb(58, 4, 4);
+    width: auto;
+    height: auto;
+    padding: 0%;
+}
+
+a:hover{
+    color: rgb(185, 82, 82);
+}
+
+a{
+    color: rgb(209, 208, 208);
+}
+
+.col-lg-3{
+    font-size: 30px;
+    padding-left: 50px;
+}
+
+.col-6{
+    padding-left: 200px;
+}
+
+
+ 

@@ -2,6 +2,8 @@
 
 function htmlHome(){
     echo '
+    <div class="hola">
+    <div class="carrousel">
     <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -24,7 +26,7 @@ function htmlHome(){
       </div>
     </div>
     <div class="carousel-item">
-      <img src="img/accesorios2.jpg" class="d-block w-100" alt="...">
+      <img src="img/accesorios.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Accesorios</h5>
         <p>Some representative placeholder content for the third slide.</p>
@@ -39,6 +41,7 @@ function htmlHome(){
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
 </div>';
 echo '
 <div class="container">
