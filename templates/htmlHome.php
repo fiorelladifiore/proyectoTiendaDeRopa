@@ -2,7 +2,7 @@
 
 function htmlHome(){
     echo '
-    <div class="hola">
+    <div class="home">
     <div class="carrousel">
     <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
@@ -43,9 +43,4 @@ function htmlHome(){
   </button>
 </div>
 </div>';
-echo '
-<div class="container">
-  <!-- Content here -->
-</div>
-';
 };

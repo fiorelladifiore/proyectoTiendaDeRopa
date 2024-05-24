@@ -1,11 +1,17 @@
 <?php
 
-require_once "templates/htmlStart.php";
+require_once "view.php";
 
-class storesView{
 
-    function showStores(){
-        htmlStart();
+class storesView extends view{
+
+
+    function showStores($stores){
+        
+        $this->smarty->assign("stores", $stores);
+        $this->smarty->display("htmlStores.tpl");
+        
+        
 
     }
 

@@ -51,13 +51,30 @@ class model{
             `id_tienda` int(11) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-            CREATE TABLE `tienda` (
+            CREATE TABLE IF NOT EXISTS `tienda` (
             `id_tienda` int(11) NOT NULL,
             `nombre` varchar(100) NOT NULL,
             `direccion` varchar(100) NOT NULL,
             `telefono` int(11) NOT NULL,
             `email` varchar(250) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+                ALTER TABLE `ropa`
+                ADD PRIMARY KEY (`id_ropa`),
+                ADD KEY `FK_ROPA_TIENDA` (`id_tienda`);
+
+                ALTER TABLE `tienda`
+                ADD PRIMARY KEY (`id_tienda`);
+
+                ALTER TABLE `ropa`
+                MODIFY `id_ropa` int(11) NOT NULL AUTO_INCREMENT;
+
+                ALTER TABLE `tienda`
+                MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT;
+
+                ALTER TABLE `ropa`
+                ADD CONSTRAINT `FK_ROPA_TIENDA` FOREIGN KEY (`id_tienda`) REFERENCES `tienda` (`id_tienda`);
+                COMMIT;
         
         ";
         

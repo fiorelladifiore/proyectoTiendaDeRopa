@@ -1,15 +1,11 @@
 <?php
 
-require_once "templates/htmlStart.php";
-require_once "templates/htmlHome.php";
-require_once "templates/htmlEnd.php";
+require_once "view.php";
 
 
-class homeView{
-    
+class homeView extends view{
+
     function showHome(){
-        htmlStart();
-        htmlHome();
-        htmlEnd();
+        $this->smarty->display("htmlHome.tpl");
     }
 }

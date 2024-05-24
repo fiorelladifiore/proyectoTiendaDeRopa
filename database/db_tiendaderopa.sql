@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2024 a las 00:19:19
+-- Tiempo de generación: 24-05-2024 a las 00:50:01
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -36,6 +36,14 @@ CREATE TABLE `ropa` (
   `id_tienda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `ropa`
+--
+
+INSERT INTO `ropa` (`id_ropa`, `tipo`, `descripcion`, `precio`, `talle`, `id_tienda`) VALUES
+(1, 'remera', 'roja', 240.00, 2, 1),
+(2, 'jean', '', 330.00, 3, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +57,15 @@ CREATE TABLE `tienda` (
   `telefono` int(11) NOT NULL,
   `email` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tienda`
+--
+
+INSERT INTO `tienda` (`id_tienda`, `nombre`, `direccion`, `telefono`, `email`) VALUES
+(1, 'Urban clothing BA', 'Montevideo 181', 11617287, 'urbanclothingba@gmail.com'),
+(2, 'Urban clothing Cba', 'Ameghino 110', 351569877, 'urbanclothingcba@gmail.com'),
+(3, 'Urban clothing SF', 'Alvear 678', 342413982, 'urbanclothingsf@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -75,13 +92,13 @@ ALTER TABLE `tienda`
 -- AUTO_INCREMENT de la tabla `ropa`
 --
 ALTER TABLE `ropa`
-  MODIFY `id_ropa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ropa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tienda`
 --
 ALTER TABLE `tienda`
-  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

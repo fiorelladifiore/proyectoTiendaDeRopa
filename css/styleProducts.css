@@ -1,0 +1,39 @@
+/* estilo de productos  */
+
+.containerProducts {
+  background-color: rgba(185, 82, 82, 0.15);
+  display: flex;
+  width: 90px;
+  height: 130px;
+}
+
+.containerList {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  background-color: rgb(126, 126, 125);
+}
+
+.articles {
+  background-color: rgb(126, 126, 125);
+  color: white;
+  padding-left: 20px;
+}
+
+.buttonVermas {
+  background-color: rgba(185, 82, 82, 0.15);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-color: aliceblue;
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+  margin-left: 85px;
+  margin-right: 85px;
+}
+
+.containerFlex{
+ display: flex;
+ 
+}

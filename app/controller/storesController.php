@@ -15,6 +15,7 @@ class storesController{
 
         function showingStores(){
             $stores = $this->model->getAll();
-            $stores = $this->view->showStores();
+            $stores = $this->view->showStores($stores);
         }
+
 }
