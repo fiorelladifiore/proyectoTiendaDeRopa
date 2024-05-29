@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2024 a las 00:50:01
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Host: 127.0.0.1
+-- Generation Time: May 29, 2024 at 10:21 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_tiendaderopa`
+-- Database: `db_tiendaderopa`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ropa`
+-- Table structure for table `ropa`
 --
 
 CREATE TABLE `ropa` (
@@ -34,20 +34,27 @@ CREATE TABLE `ropa` (
   `precio` double(10,2) NOT NULL,
   `talle` int(11) NOT NULL,
   `id_tienda` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `ropa`
+-- Dumping data for table `ropa`
 --
 
 INSERT INTO `ropa` (`id_ropa`, `tipo`, `descripcion`, `precio`, `talle`, `id_tienda`) VALUES
-(1, 'remera', 'roja', 240.00, 2, 1),
-(2, 'jean', '', 330.00, 3, 3);
+(1, 'remera', 'roja', 250.00, 2, 1),
+(2, 'jean', 'negro', 900.00, 3, 1),
+(3, 'buzo', 'azul', 500.00, 2, 1),
+(4, 'jogging', 'gris', 750.00, 3, 2),
+(5, 'suéter', 'negro', 300.00, 1, 2),
+(6, 'jean', 'celeste', 900.00, 1, 2),
+(7, 'remera', 'rosa', 250.00, 3, 3),
+(8, 'campera', 'marrón', 600.00, 2, 3),
+(11, 'polera', 'bordó', 400.00, 3, 3);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tienda`
+-- Table structure for table `tienda`
 --
 
 CREATE TABLE `tienda` (
@@ -56,10 +63,10 @@ CREATE TABLE `tienda` (
   `direccion` varchar(100) NOT NULL,
   `telefono` int(11) NOT NULL,
   `email` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `tienda`
+-- Dumping data for table `tienda`
 --
 
 INSERT INTO `tienda` (`id_tienda`, `nombre`, `direccion`, `telefono`, `email`) VALUES
@@ -67,45 +74,78 @@ INSERT INTO `tienda` (`id_tienda`, `nombre`, `direccion`, `telefono`, `email`) V
 (2, 'Urban clothing Cba', 'Ameghino 110', 351569877, 'urbanclothingcba@gmail.com'),
 (3, 'Urban clothing SF', 'Alvear 678', 342413982, 'urbanclothingsf@gmail.com');
 
+-- --------------------------------------------------------
+
 --
--- Índices para tablas volcadas
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(150) NOT NULL,
+  `role` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
+(1, 'webadmin', '$2y$10$2/mZFGAPzleQi.qHtcxICe/xOQ8qFyjPfc1dfd1ahtR1JlI67buRW', 'admin');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `ropa`
+-- Indexes for table `ropa`
 --
 ALTER TABLE `ropa`
   ADD PRIMARY KEY (`id_ropa`),
   ADD KEY `FK_ROPA_TIENDA` (`id_tienda`);
 
 --
--- Indices de la tabla `tienda`
+-- Indexes for table `tienda`
 --
 ALTER TABLE `tienda`
   ADD PRIMARY KEY (`id_tienda`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `ak_username` (`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `ropa`
+-- AUTO_INCREMENT for table `ropa`
 --
 ALTER TABLE `ropa`
-  MODIFY `id_ropa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ropa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `tienda`
+-- AUTO_INCREMENT for table `tienda`
 --
 ALTER TABLE `tienda`
   MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Restricciones para tablas volcadas
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `ropa`
+-- Constraints for table `ropa`
 --
 ALTER TABLE `ropa`
   ADD CONSTRAINT `FK_ROPA_TIENDA` FOREIGN KEY (`id_tienda`) REFERENCES `tienda` (`id_tienda`);

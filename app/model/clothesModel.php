@@ -9,7 +9,7 @@ class clothesModel extends model{
 
         $sentencia = $db->prepare("SELECT * FROM ropa");
         $sentencia->execute();
-        $clothing= $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $clothing;
+        $clothes= $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $clothes;
     }
 }

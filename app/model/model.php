@@ -42,22 +42,22 @@ class model{
 
     
     private function createTables(){
-        $sql = "CREATE TABLE IF NOT EXISTS `ropa` (
+        $sql = "CREATE TABLE IF NOT EXISTS `ropa` ( 
             `id_ropa` int(11) NOT NULL,
-            `tipo` varchar(250) NOT NULL,
+            `tipo` varchar(250) NOT NULL, 
             `descripcion` varchar(250) NOT NULL,
             `precio` double(10,2) NOT NULL,
             `talle` int(11) NOT NULL,
             `id_tienda` int(11) NOT NULL
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-            CREATE TABLE IF NOT EXISTS `tienda` (
-            `id_tienda` int(11) NOT NULL,
+            ); 
+            
+            CREATE TABLE IF NOT EXISTS `tienda`( 
+            `id_tienda` int(11) NOT NULL, 
             `nombre` varchar(100) NOT NULL,
             `direccion` varchar(100) NOT NULL,
             `telefono` int(11) NOT NULL,
             `email` varchar(250) NOT NULL
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            );
 
                 ALTER TABLE `ropa`
                 ADD PRIMARY KEY (`id_ropa`),
