@@ -14,13 +14,16 @@ class storesController{
         }
 
         function showingStores(){
-
-            // if( $this->checkLogged()){
+            // var_dump($id);die;
+            
             $stores = $this->model->getAll();
             $stores = $this->view->showStores($stores);
         // }
         }
 
+
+
+            // if( $this->checkLogged()){
         // public function checkLogged() {
         //     if (session_status() != PHP_SESSION_ACTIVE){
         //         session_start();

@@ -11,4 +11,8 @@ class clothesView extends view{
 
 }
 
+  function showStoreProd($storePS){
+    $this->smarty->assign("storePS", $storePS);
+    $this->smarty->display("htmlStoreProducts.tpl");
+  }
 }

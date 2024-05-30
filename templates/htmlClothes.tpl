@@ -11,6 +11,8 @@
       <li class="list-group-item articles">{$clothing->descripcion}</li>
       <li class="list-group-item articles">Talle:{$clothing->talle}</li>
       <li class="list-group-item articles">${$clothing->precio}</li>
+      <li class="list-group-item articles">{$clothing->nombre}</li>
+      <li class="list-group-item articles">{$clothing->direccion}</li>
     </ul>
   <button class="buttonVermas">Ver mas</button>
   </div>
