@@ -217,8 +217,3 @@ button {
     font-size: 1.2em;
     color: #333;
 }
-
-.containerFlex{
-    display: flex;
-    flex-direction: row;
-}

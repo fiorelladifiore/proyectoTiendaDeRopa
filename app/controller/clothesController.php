@@ -16,14 +16,7 @@ class clothesController {
 
     function showingClothes(){
         $clothes = $this->model->getAll();
-       
-        $this->view->showClothes($clothes);
-    }
-
-    function showingProd($id){
-        $storePS = $this->model->getProd($id);
-        $this->view->showStoreProd($storePS);
-        //
+        $clothes = $this->view->showClothes($clothes);
     }
 
 

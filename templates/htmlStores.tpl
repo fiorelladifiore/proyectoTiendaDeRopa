@@ -1,7 +1,6 @@
 {include "htmlStart.tpl"}
 
 {foreach $stores as $store }
-    
          <div class='card' style='width: 65rem;'>
                
                 <div class='card-body'>
@@ -9,7 +8,7 @@
                     <p class='card-text'>Dirección: {$store->direccion}</p>
                     <p class='card-text'>Teléfono: {$store->telefono}</p>
                     <p class='card-text'>Email: {$store->email}</p>
-                    <a href='store_prod/{$store->id_tienda}' class='btn btn-secondary'>Ver productos</a>
+                    <a href='stores/$store->id' class='btn btn-secondary'>Ver productos</a>
                 </div>
                 </div>
 {/foreach}

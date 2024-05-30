@@ -1,22 +1,19 @@
-
 {include "htmlStart.tpl"}
 
-
-{foreach $clothes as $clothing}
-
 <div class="containerFlex">
-  <div class="card mt-3 containerProducts" style="width: 20rem;" >
-    <ul class="list-group list-group-flush containerList">
-      <li class="list-group-item articles">{$clothing->tipo}</li>
-      <li class="list-group-item articles">{$clothing->descripcion}</li>
-      <li class="list-group-item articles">Talle:{$clothing->talle}</li>
-      <li class="list-group-item articles">${$clothing->precio}</li>
-      <li class="list-group-item articles">{$clothing->nombre}</li>
-      <li class="list-group-item articles">{$clothing->direccion}</li>
-    </ul>
-  <button class="buttonVermas">Ver mas</button>
-  </div>
+
+  {foreach $clothes as $clothing}
+
+    <div>
+      <ul class="containerList">
+        <li class="list-group-item articles">{$clothing->tipo}</li>
+        <li class="list-group-item articles">{$clothing->descripcion}</li>
+        <li class="list-group-item articles">Talle:{$clothing->talle}</li>
+        <li class="list-group-item articles">${$clothing->precio}</li>
+        <button class="buttonVermas">Ver</button>
+      </ul>
+    </div>
+  {/foreach}
 </div>
-{/foreach}
 
 {include "htmlEnd.tpl"}
