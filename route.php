@@ -24,6 +24,14 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new storesController();
             $controller->showingStores();
             break;
+        case 'store_prod':
+            $controller = new clothesController();
+            $controller->showingProd($parametro[1]);
+            break;
+        case 'AddStores':
+            $controller = new storesController();
+            $controller->showFormAddStores();
+            break;
         case 'products':
             $controller = new clothesController();
             $controller->showingClothes();

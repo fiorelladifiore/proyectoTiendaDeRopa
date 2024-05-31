@@ -14,13 +14,18 @@ class storesController{
         }
 
         function showingStores(){
-
-            // if( $this->checkLogged()){
             $stores = $this->model->getAll();
-            $stores = $this->view->showStores($stores);
-        // }
+            $this->view->showStores($stores);
         }
+        
+        // function showAdmOptions(){
+        //     $this->view->showFormAddStores();
+        // }
 
+
+
+
+        // if( $this->checkLogged()){
         // public function checkLogged() {
         //     if (session_status() != PHP_SESSION_ACTIVE){
         //         session_start();

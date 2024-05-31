@@ -9,6 +9,11 @@ class clothesView extends view{
     $this->smarty->assign("clothes", $clothes);
     $this->smarty->display("htmlClothes.tpl");
 
-}
+  }
+
+  function showStoreProd($storePS){
+    $this->smarty->assign("storePS", $storePS);
+    $this->smarty->display("htmlStoreProducts.tpl");
+  }
 
 }
