@@ -12,8 +12,9 @@ class storesView extends view{
         $this->smarty->display("htmlStores.tpl");
     }
 
-    // function showFormAddStores(){
-    //     $this->smarty->display("htmlFormAddStores.tpl");
-    // }
+    function showEditForm($store){
+        $this->smarty->assign("store", $store);
+        $this->smarty->display("htmlEditForm.tpl");
+    }
 
 }

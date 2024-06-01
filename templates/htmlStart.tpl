@@ -28,14 +28,14 @@
         <li class="nav-item">
           <a class="nav-link" href="products">Productos</a>
         </li>
+      {if !$logged}
         <li class="nav-item">
           <a class="nav-link" href="login">Iniciar sesión</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="hash">Hashing</a>
-        </li>
+        {else}
         <li class="nav-item">
           <a class="nav-link" href="logout">Cerrar sesión</a>
+        {/if}
       </li>
       </ul>
     </div>

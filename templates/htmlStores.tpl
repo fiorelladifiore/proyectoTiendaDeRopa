@@ -1,6 +1,8 @@
 {include "htmlStart.tpl"}
 
-{include "htmlFormAdd.tpl"}
+{if $admin == admin}
+{include "htmlAddForm.tpl"}
+{/if}
 
 {foreach $stores as $store }
          <div class='card' style='width: 65rem;'>
@@ -10,8 +12,12 @@
                     <p class='card-text'>Dirección: {$store->direccion}</p>
                     <p class='card-text'>Teléfono: {$store->telefono}</p>
                     <p class='card-text'>Email: {$store->email}</p>
-                    <a href='store_prod/{$store->id_tienda}' class='btn btn-secondary'>Ver productos</a>
+                    <a href='storeProd/{$store->id_tienda}' class='btn btn-secondary'>Ver productos</a>
                 </div>
+                {if $admin ==admin}
+                <a href='deleteStore/{$store->id_tienda}' class='btn btn-secondary'>Eliminar</a>
+                <a href='editStore/{$store->id_tienda}' class='btn btn-secondary'>Editar</a>
+                {/if}
                 </div>
 {/foreach}
 

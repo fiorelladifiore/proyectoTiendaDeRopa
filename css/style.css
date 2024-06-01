@@ -78,9 +78,10 @@ a{
 }
 
 .card {
+    flex-direction: row;
     background-color: rgb(158, 94, 94);
-    margin-left: 10%;
-    margin-top: 50px;
+   padding: 10px;
+   margin: 20px auto;
 }
 
 .card-text, .card-title {
@@ -115,8 +116,7 @@ a{
 
 .btn{
    padding: 10px;
-   margin-left: 40%;
-   margin-bottom: 10px;
+   margin: auto auto;
     
     color: rgb(48, 11, 11) !important;
     background-color: aliceblue;
@@ -220,6 +220,8 @@ button {
 
 .form{
     background-color: rgb(145, 54, 54);
+    padding: 20px 30px;
+    margin: 20px auto;
 
     
 }
@@ -229,6 +231,6 @@ button {
 }
 
 .btn-add {
-    margin: 10px;
+    margin: 20px 6px;
     background-color: #a14a4a;
 }

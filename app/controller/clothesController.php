@@ -2,6 +2,7 @@
 
 require_once "app/view/clothesView.php";
 require_once "app/model/clothesModel.php";
+require_once "helpers/authHelpers.php";
 
 class clothesController {
     private $model;
@@ -20,11 +21,12 @@ class clothesController {
     }
 
     
-        function showingProd($id){
+    function showingProd($id){
+    if(authHelpers::checkLogged()){
         $storePS = $this->model->getProd($id);
         $this->view->showStoreProd($storePS);
-        //
         }
+    }
 
 
 

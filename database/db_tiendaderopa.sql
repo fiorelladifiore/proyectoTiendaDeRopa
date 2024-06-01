@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 29, 2024 at 10:21 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 01-06-2024 a las 05:40:31
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_tiendaderopa`
+-- Base de datos: `db_tiendaderopa`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ropa`
+-- Estructura de tabla para la tabla `ropa`
 --
 
 CREATE TABLE `ropa` (
@@ -37,7 +37,7 @@ CREATE TABLE `ropa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ropa`
+-- Volcado de datos para la tabla `ropa`
 --
 
 INSERT INTO `ropa` (`id_ropa`, `tipo`, `descripcion`, `precio`, `talle`, `id_tienda`) VALUES
@@ -54,7 +54,7 @@ INSERT INTO `ropa` (`id_ropa`, `tipo`, `descripcion`, `precio`, `talle`, `id_tie
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tienda`
+-- Estructura de tabla para la tabla `tienda`
 --
 
 CREATE TABLE `tienda` (
@@ -66,7 +66,7 @@ CREATE TABLE `tienda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tienda`
+-- Volcado de datos para la tabla `tienda`
 --
 
 INSERT INTO `tienda` (`id_tienda`, `nombre`, `direccion`, `telefono`, `email`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `tienda` (`id_tienda`, `nombre`, `direccion`, `telefono`, `email`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -88,64 +88,67 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
-(1, 'webadmin', '$2y$10$2/mZFGAPzleQi.qHtcxICe/xOQ8qFyjPfc1dfd1ahtR1JlI67buRW', 'admin');
+(1, 'webadmin', '$2y$10$2/mZFGAPzleQi.qHtcxICe/xOQ8qFyjPfc1dfd1ahtR1JlI67buRW', 'admin'),
+                //admin
+(2, 'webuser', '$2y$10$vxKSdjhrr1zq2wEgCi6zD.BJxYJ1tZLeX/8JyknzXzrBBJz8s71Eu', 'default');
+                //prueba
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `ropa`
+-- Indices de la tabla `ropa`
 --
 ALTER TABLE `ropa`
   ADD PRIMARY KEY (`id_ropa`),
   ADD KEY `FK_ROPA_TIENDA` (`id_tienda`);
 
 --
--- Indexes for table `tienda`
+-- Indices de la tabla `tienda`
 --
 ALTER TABLE `tienda`
   ADD PRIMARY KEY (`id_tienda`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `ak_username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `ropa`
+-- AUTO_INCREMENT de la tabla `ropa`
 --
 ALTER TABLE `ropa`
   MODIFY `id_ropa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tienda`
+-- AUTO_INCREMENT de la tabla `tienda`
 --
 ALTER TABLE `tienda`
-  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `ropa`
+-- Filtros para la tabla `ropa`
 --
 ALTER TABLE `ropa`
   ADD CONSTRAINT `FK_ROPA_TIENDA` FOREIGN KEY (`id_tienda`) REFERENCES `tienda` (`id_tienda`);

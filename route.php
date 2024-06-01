@@ -24,14 +24,27 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new storesController();
             $controller->showingStores();
             break;
-        case 'store_prod':
+        case 'storeProd':
             $controller = new clothesController();
             $controller->showingProd($parametro[1]);
             break;
-        case 'AddStores':
+        case 'addStore':
             $controller = new storesController();
-            $controller->showFormAddStores();
+            $controller->newStore();
             break;
+        case 'deleteStore':
+            $controller = new storesController();
+            $controller->deleteStore($parametro[1]);
+            break;
+        case 'editStore':
+            $controller = new storesController();
+            $controller->editStore($parametro[1]);
+            break;
+        case 'updateStore':
+            $controller = new storesController();
+            $controller->updateStore($parametro[1]);
+            break;
+        
         case 'products':
             $controller = new clothesController();
             $controller->showingClothes();
@@ -49,7 +62,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller->logout();
                 break;
         case 'hash':
-            $password = "admin";
+            $password = "prueba";
            
                 // PARA EL MOMENTO DE REGISTRAR UN USUARIO UDS. DEBEN USAR ÉSTE ÚLTIMO
             echo password_hash ($password, PASSWORD_DEFAULT);  
