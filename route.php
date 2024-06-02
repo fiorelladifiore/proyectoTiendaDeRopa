@@ -49,6 +49,18 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new clothesController();
             $controller->showingClothes();
             break;
+        case 'product':
+            $controller = new clothesController();
+            $controller->showingProduct($parametro[1]);
+            break;
+        case 'delete':
+            $controller = new clothesController();
+            $controller->deleteProduct($parametro[1]);
+            break;
+        case 'addProduct':
+            $controller = new clothesController();
+            $controller->addProduct();
+            break;
         case 'login':
             $controller = new authController();
             $controller->showingLogin();
