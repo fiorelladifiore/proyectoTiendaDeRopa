@@ -7,12 +7,14 @@ require_once "helpers/authHelpers.php";
 class clothesController {
     private $model;
     private $view;
-    // private $err;
+    private $err;
 
     public function __construct()
      {
+        
         $this->model = new clothesModel();
         $this->view = new clothesView();
+        $this->err = new errView();
      }
 
     function showingClothes(){
@@ -25,6 +27,8 @@ class clothesController {
     if(authHelpers::checkLogged()){
         $storePS = $this->model->getProd($id);
         $this->view->showStoreProd($storePS);
+        }else{
+        $this->err->showErr("No existe la tarea con id: $id");
         }
     }
 

@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="img/accesorios.jpg" class="d-block w-100" alt="...">
+      <img src="img/novedades.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Novedades</h5>
         <p>No te pierdas las últimas tendencias</p>
@@ -43,12 +43,12 @@
 </div>
 </div>
 <div class="hotsale">
-  <img src="img/hotsaletienda.jpg" class="hotsaleimg rounded mx-auto d-block"> 
+  <img src="img/hotSaleTienda.jpg" class="hotsaleimg rounded mx-auto d-block"> 
   </div>
 </div>
 <div class="secondpart">
   <div class="paymentsmethods">
-  <img src="img/mp.png" class="rounded-spill">
+  <img src="img/metodosPago.png" class="rounded-spill">
   </div>
   <div class="rating-container">
   <h1>Califica Nuestro Servicio</h1>

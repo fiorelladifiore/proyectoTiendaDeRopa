@@ -10,13 +10,13 @@
         <label class="form-label">Contraseña</label>
         <input type="text" name="password" class="form-control" placeholder="Ingrese su contraseña">
       </div>
-    {if $msj}
+    {if $msg}
         <div class='alert alert-warning'>
-            {$msj}
+            {$msg}
         </div>
     {/if}
 
-   <button type="submit" class="btn col-2">Ingresar</button>
+   <button type="submit" class="btn-login col-5">Ingresar</button>
   </form>
 
 {include 'htmlEnd.tpl'}

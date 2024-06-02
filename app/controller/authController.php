@@ -30,7 +30,6 @@ class authController{
                     $_SESSION['IS_LOGGED'] = true;
                     $_SESSION['USERNAME'] = $user->username;
                     $_SESSION['ROLE'] = $user->role;
-
                     header("Location:" . BASE_URL . "home");die();
                 } else {
                     $this->view->showLogin("Usuario incorrecto");
@@ -45,6 +44,5 @@ class authController{
         session_start();
         session_destroy();
         header("Location:" . BASE_URL . "login");die();
-
     }
 }

@@ -1,6 +1,6 @@
 {include "htmlStart.tpl"}
   
-<form class="form col-4 m-auto" action="updateStore" method="POST">   
+<form class="form col-4" action="updateStore" method="POST">   
 <legend class="text-center">Editar tienda</legend>
 <div class="mb-3">
 <label class="form-label">Nombre de tienda</label>

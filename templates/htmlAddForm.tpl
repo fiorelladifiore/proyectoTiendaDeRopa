@@ -1,6 +1,6 @@
  
   
-    <form class="form col-4 m-auto" action="addStore" method="POST">   
+    <form class="form col-4" action="addStore" method="POST">   
          <legend class="text-center">Agregar tienda</legend>
       <div class="mb-3">
         <label class="form-label">Nombre de tienda</label>

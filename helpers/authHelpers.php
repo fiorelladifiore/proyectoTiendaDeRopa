@@ -29,13 +29,11 @@ class authHelpers{
         if (session_status() != PHP_SESSION_ACTIVE){
             session_start();
         }
-        if (!isset($_SESSION['ROLE'])) {
-            return false;
-              
-        } else{
-
+        if (isset($_SESSION['ROLE']) && $_SESSION['ROLE'] === 'admin') {
             return true;
-        } 
+        } else {
+            return false;
+        }
     }
 
 }

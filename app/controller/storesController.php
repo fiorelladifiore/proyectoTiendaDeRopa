@@ -6,11 +6,13 @@ require_once "app/view/storesView.php";
 class storesController{
         private $model;
         private $view;
+        private $err;
 
         public function __construct()
         {
             $this->model = new storesModel();
             $this->view = new storesView();
+            $this->err = new errView();
         }
 
         function showingStores(){
@@ -31,7 +33,7 @@ class storesController{
                     header("Location:".BASE_URL."stores");             
     
                 }else{
-                    echo "Faltan datos";   
+                    $this->err->showErr("Faltan datos");    
                 }
             }
         }
@@ -60,7 +62,7 @@ class storesController{
                     header("Location:".BASE_URL."stores");             
     
                 }else{
-                    echo "Faltan datos";   
+                    $this->err->showErr("Faltan datos");    
                 }
             }
         }

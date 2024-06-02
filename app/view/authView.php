@@ -5,9 +5,9 @@ require_once "view.php";
 class authView extends view
 {
 
-  function showLogin($msj = null)
+  function showLogin($msg = null)
   {
-    $this->smarty->assign("msj", $msj);
+    $this->smarty->assign("msg", $msg);
     $this->smarty->display('htmlLogin.tpl');
 
   }

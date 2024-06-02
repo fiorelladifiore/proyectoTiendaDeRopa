@@ -4,6 +4,7 @@ require_once "app/controller/homeController.php";
 require_once "app/controller/storesController.php";
 require_once "app/controller/authController.php";
 require_once "app/controller/clothesController.php";
+require_once "app/controller/errController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -44,7 +45,6 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new storesController();
             $controller->updateStore($parametro[1]);
             break;
-        
         case 'products':
             $controller = new clothesController();
             $controller->showingClothes();
@@ -62,15 +62,9 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller->logout();
                 break;
         case 'hash':
-            $password = "prueba";
-           
-                // PARA EL MOMENTO DE REGISTRAR UN USUARIO UDS. DEBEN USAR ÉSTE ÚLTIMO
-            echo password_hash ($password, PASSWORD_DEFAULT);  
+            password_hash ($password, PASSWORD_DEFAULT);  
             break;
-        
-        
-
-      default:
-    //     $err = new ErrController();
-    //     $err->showErr("404 not found");
+        default:
+            $err = new errController();
+            $err->showErr("404 not found");
     }
