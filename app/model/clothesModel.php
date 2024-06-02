@@ -39,7 +39,7 @@ class clothesModel extends model{
 
     function addProduct($tipo, $descripcion, $precio, $talle){ 
             $db = $this->getConnection();
-            $resultado= $db->prepare("INSERT INTO ropa (tipo, descripcion, precio, talle) VALUES (?,?,?,?)");
+            $resultado= $db->prepare("INSERT INTO ropa (tipo, descripcion, precio, talle, id_tienda) VALUES (?,?,?,?,?)");
             $resultado->execute([$tipo, $descripcion, $talle, $precio]); 
         }
     }

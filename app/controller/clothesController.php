@@ -46,8 +46,8 @@ class clothesController {
                 $descripcion = $_POST['descripcion'];
                 $talle = $_POST['talle'];
                 $precio = $_POST['precio'];
-                $this->model->addProduct($tipo, $descripcion, $talle , $precio);
-                var_dump($tipo);die();
+                $id_tienda = $_POST['id_tienda'];
+                $this->model->addProduct($tipo, $descripcion, $talle , $precio, $id_tienda);
                 header("Location:".BASE_URL."products");
                 
             }
