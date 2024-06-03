@@ -4,9 +4,10 @@ require_once "view.php";
 
 class clothesView extends view{
 
-  function showClothes($clothes){ 
+  function showClothes($stores, $products){ 
 
-    $this->smarty->assign("clothes", $clothes);
+    $this->smarty->assign("products", $products);
+    $this->smarty->assign("stores", $stores);
     $this->smarty->display("htmlClothes.tpl");
 }
 
@@ -17,7 +18,12 @@ function showStoreProd($storePS){
 
   function showProduct($product){
     $this->smarty->assign("product", $product);
-    $this->smarty->display("productView.tpl");
+    $this->smarty->display("htmlProduct.tpl");
+}
+
+function showStoresOnAddForm($stores){
+  $this->smarty->assign("stores", $stores);
+  $this->smarty->display("htmlAddProdForm.tpl");
 }
 
 }

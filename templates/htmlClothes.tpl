@@ -1,26 +1,30 @@
 {include "htmlStart.tpl"}
-{include 'formAdd.tpl'}
+
+
+{if $admin == true}
+{include 'htmlAddProdForm.tpl'}
+{/if}
 
 <div class="containerFlex">
 
-  {foreach $clothes as $clothing}
+  {foreach $products as $item}
 
     <div>
       <ul class="containerList">
-        <li class="list-group-item articles">{$clothing->tipo}</li>
-        <li class="list-group-item articles">{$clothing->descripcion}</li>
-        <li class="list-group-item articles">Talle:{$clothing->talle}</li>
-        <li class="list-group-item articles">${$clothing->precio}</li>
-        <a href='product/{$clothing->id_ropa}' class='btn btn-secondary'>Ver</a>
+        <li class="list-group-item articles">{$item->tipo}</li>
+        <li class="list-group-item articles">{$item->descripcion}</li>
+        <li class="list-group-item articles">Talle:{$item->talle}</li>
+        <li class="list-group-item articles">${$item->precio}</li>
+        <li class="list-group-item articles" value="{$item->id_tienda}">{$item->nombre}</li>
+        <a href='product/{$item->id_ropa}' class='btn btn-secondary'>Ver</a>
       </ul>
-      <div>
-        <button>Editar</button>
-        <a href='delete/{$clothing->id_ropa}'><button>Eliminar</button></a> 
+      {if $admin == true}
+        <a href='deleteProd/{$item->id_ropa}'><button>Eliminar</button></a>
+        {* <button>Editar</button> *}
+      {/if}
       </div>
-    </div>
-    
   {/foreach}
 </div>
 
-
 {include "htmlEnd.tpl"}
+

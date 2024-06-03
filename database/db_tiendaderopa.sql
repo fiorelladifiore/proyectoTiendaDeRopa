@@ -93,9 +93,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
 (1, 'webadmin', '$2y$10$2/mZFGAPzleQi.qHtcxICe/xOQ8qFyjPfc1dfd1ahtR1JlI67buRW', 'admin'),
-                //admin
 (2, 'webuser', '$2y$10$vxKSdjhrr1zq2wEgCi6zD.BJxYJ1tZLeX/8JyknzXzrBBJz8s71Eu', 'default');
-                //prueba
+                
 
 --
 -- Índices para tablas volcadas

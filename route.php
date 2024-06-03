@@ -27,7 +27,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             break;
         case 'storeProd':
             $controller = new clothesController();
-            $controller->showingProd($parametro[1]);
+            $controller->showingStoreProd($parametro[1]);
             break;
         case 'addStore':
             $controller = new storesController();
@@ -53,13 +53,13 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new clothesController();
             $controller->showingProduct($parametro[1]);
             break;
-        case 'delete':
+        case 'deleteProd':
             $controller = new clothesController();
             $controller->deleteProduct($parametro[1]);
             break;
-        case 'addProduct':
+        case 'addProd':
             $controller = new clothesController();
-            $controller->addProduct();
+            $controller->newProduct();
             break;
         case 'login':
             $controller = new authController();

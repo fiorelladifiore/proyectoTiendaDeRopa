@@ -13,7 +13,7 @@ class clothesModel extends model{
         return $clothes;
     }
 
-    function getProd($id){
+    function getProdStore($id){
         $db = $this->getConnection();
 
         $sentencia = $db->prepare("SELECT * FROM ropa r WHERE r.id_tienda = ?");
@@ -33,14 +33,25 @@ class clothesModel extends model{
 
     function deleteProduct($id){
         $db = $this->getConnection();
-        $resultado= $db->prepare("DELETE FROM ropa WHERE id_ropa = ?");
+        $resultado=$db->prepare("DELETE FROM ropa WHERE id_ropa=?");
         $resultado->execute([$id]);
     }
 
-    function addProduct($tipo, $descripcion, $precio, $talle){ 
+    function addProduct($tipo, $descripcion, $talle, $precio, $id_tienda){ 
             $db = $this->getConnection();
-            $resultado= $db->prepare("INSERT INTO ropa (tipo, descripcion, precio, talle, id_tienda) VALUES (?,?,?,?,?)");
-            $resultado->execute([$tipo, $descripcion, $talle, $precio]); 
+            $resultado= $db->prepare("INSERT INTO ropa (tipo, descripcion, talle, precio, id_tienda) VALUES (?,?,?,?,?)");
+            $resultado->execute([$tipo, $descripcion, $talle, $precio, $id_tienda]); 
+    }
+
+        function getStoAndProd(){
+            $db = $this->getConnection();
+           
+            $sentencia = $db->prepare("SELECT * FROM ropa r, tienda t WHERE r.id_tienda = t.id_tienda");
+            $sentencia->execute();
+            $stores = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $stores;
         }
     }
+
+
 

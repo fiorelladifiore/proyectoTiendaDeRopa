@@ -2,34 +2,43 @@
 
 require_once "app/view/clothesView.php";
 require_once "app/model/clothesModel.php";
+require_once "app/model/storesModel.php";
 
 class clothesController {
     private $model;
+    private $storesModel;
     private $view;
-    // private $err;
+    private $err;
 
     public function __construct()
      {
         $this->model = new clothesModel();
         $this->view = new clothesView();
+        $this->storesModel = new storesModel();
+        $this->err = new errView();
      }
 
-    function showingClothes(){
-        $clothes = $this->model->getAll();
-        $clothes = $this->view->showClothes($clothes);
+    function showingClothes($id = null){
+        $stores = $this->storesModel->getAll();
+        $products = $this->model->getStoAndProd();
+        $this->view->showClothes($stores, $products);
     }
 
     function showingProduct($id){
-        $product=$this->model->getProduct($id);
-        $product= $this->view->showProduct($product);
+        if(authHelpers::checkLogged()){
+            $product=$this->model->getProduct($id);
+            $this->view->showProduct($product);
+        }else{
+            $this->err->showErr("No existe el producto con id: $id");
+            }
     }
     
-    function showingProd($id){
+    function showingStoreProd($id){
         if(authHelpers::checkLogged()){
-            $storePS = $this->model->getProd($id);
+            $storePS = $this->model->getProdStore($id);
             $this->view->showStoreProd($storePS);
             }else{
-            $this->err->showErr("No existe la tarea con id: $id");
+            $this->err->showErr("No existe el producto con id: $id");
             }
         }
 
@@ -38,21 +47,26 @@ class clothesController {
         header("Location:".BASE_URL."products");
     }
 
-    function addProduct(){
+    function newProduct(){
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(!empty($_POST['tipo']) && !empty($_POST['descripcion'])&&
-            isset($_POST['precio']) && $_POST['precio'] !== ""){
+            isset($_POST['talle']) && isset($_POST['precio'])
+            ){
                 $tipo = $_POST['tipo'];
                 $descripcion = $_POST['descripcion'];
                 $talle = $_POST['talle'];
                 $precio = $_POST['precio'];
                 $id_tienda = $_POST['id_tienda'];
-                $this->model->addProduct($tipo, $descripcion, $talle , $precio, $id_tienda);
-                header("Location:".BASE_URL."products");
-                
+                $this->model->addProduct($tipo, $descripcion, $talle, $precio, $id_tienda);
+                header("Location:".BASE_URL."products");             
+            }else{
+                $this->err->showErr("Faltan datos");    
             }
         }
     }
+    
+
+
 
 
 
