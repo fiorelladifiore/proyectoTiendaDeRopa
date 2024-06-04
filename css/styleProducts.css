@@ -29,7 +29,7 @@ body {
 .containerList {
   font-family: "Bebas Neue", sans-serif;
   font-style: normal;
-  background-color: rgb(82, 57, 57);
+  background-color: rgb(128, 91, 91);
   padding: 10px;
   display: flex;
   flex-direction: column;
