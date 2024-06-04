@@ -1,4 +1,4 @@
-<form class="form col-4" action="addProd" method="POST">   
+<form class="form col-4" action="addProd" method="POST" enctype="multipart/form-data">   
     <legend class="text-center">Agregar producto</legend>
  <div class="mb-3">
    <label class="form-label">Tipo de producto</label>
@@ -17,7 +17,11 @@
    <input type="text" name="precio" class="form-control" placeholder="Ingrese el precio">
  </div>
  <div class="mb-3">
- <label class="form-label">Tiendas a la que pertenece</label>
+ <label class="form-label">Agregar imagen</label>
+ <input type="file" name="imagen" class="form-control">
+</div>
+ <div class="mb-3">
+ <label class="form-label">Tienda a la que pertenece</label>
  <select  name="id_tienda" class="form-select">
     {foreach $stores as $store}
       <option value="{$store->id_tienda}">{$store->nombre}</option>

@@ -1,10 +1,11 @@
 <?php
 
-require_once "app/view/clothesView.php";
-require_once "app/model/clothesModel.php";
+require_once "app/view/productsView.php";
+require_once "app/model/productsModel.php";
 require_once "app/model/storesModel.php";
 
-class clothesController {
+
+class productsController {
     private $model;
     private $storesModel;
     private $view;
@@ -12,35 +13,27 @@ class clothesController {
 
     public function __construct()
      {
-        $this->model = new clothesModel();
-        $this->view = new clothesView();
+        $this->model = new productsModel();
+        $this->view = new productsView();
         $this->storesModel = new storesModel();
         $this->err = new errView();
      }
 
-    function showingClothes($id = null){
+    function showingProducts($id = null){
         $stores = $this->storesModel->getAll();
         $products = $this->model->getStoAndProd();
-        $this->view->showClothes($stores, $products);
+        $this->view->showProducts($stores, $products);
     }
 
     function showingProduct($id){
-        if(authHelpers::checkLogged()){
             $product=$this->model->getProduct($id);
             $this->view->showProduct($product);
-        }else{
-            $this->err->showErr("No existe el producto con id: $id");
-            }
     }
-    
+
     function showingStoreProd($id){
-        if(authHelpers::checkLogged()){
             $storePS = $this->model->getProdStore($id);
             $this->view->showStoreProd($storePS);
-            }else{
-            $this->err->showErr("No existe el producto con id: $id");
-            }
-        }
+    }
 
     function deleteProduct($id){
         $this->model->deleteProduct($id);
@@ -57,13 +50,26 @@ class clothesController {
                 $talle = $_POST['talle'];
                 $precio = $_POST['precio'];
                 $id_tienda = $_POST['id_tienda'];
-                $this->model->addProduct($tipo, $descripcion, $talle, $precio, $id_tienda);
-                header("Location:".BASE_URL."products");             
-            }else{
-                $this->err->showErr("Faltan datos");    
-            }
-        }
-    }
+                if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png"){
+                    $imagen = $_FILES['imagen']['name'];
+                    $tmp_name = $_FILES['imagen']['tmp_name'];
+                    $destination = "img/" . $imagen;
+                    
+                    if (move_uploaded_file($tmp_name, $destination)) {
+                        $this->model->addProduct($tipo, $descripcion, $talle, $precio, $id_tienda, $imagen);
+                        header("Location: " . BASE_URL . "products");
+                        }else{
+                        $this->err->showErr("Ocurrió un error con la conexión");
+                        }
+                    }else{
+                    $this->err->showErr("Formato de imagen incorrecto");
+                    }   
+                }else{
+                    $this->err->showErr("Faltan datos");
+                    }
+                }
+              }
+              
 
     function editProduct($id){
         $product = $this->model->getProd($id);
@@ -88,6 +94,8 @@ class clothesController {
             }
         }
     }
+
+
     
 }
 

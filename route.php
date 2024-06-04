@@ -3,7 +3,7 @@
 require_once "app/controller/homeController.php";
 require_once "app/controller/storesController.php";
 require_once "app/controller/authController.php";
-require_once "app/controller/clothesController.php";
+require_once "app/controller/productsController.php";
 require_once "app/controller/errController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -26,7 +26,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller->showingStores();
             break;
         case 'storeProd':
-            $controller = new clothesController();
+            $controller = new productsController();
             $controller->showingStoreProd($parametro[1]);
             break;
         case 'addStore':
@@ -46,27 +46,27 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller->updateStore($parametro[1]);
             break;
         case 'products':
-            $controller = new clothesController();
-            $controller->showingClothes();
+            $controller = new productsController();
+            $controller->showingProducts();
             break;
         case 'product':
-            $controller = new clothesController();
+            $controller = new productsController();
             $controller->showingProduct($parametro[1]);
             break;
         case 'editProduct':
-            $controller = new clothesController();
+            $controller = new productsController();
             $controller->editProduct($parametro[1]);
             break;
         case 'updateProduct':
-            $controller = new clothesController();
+            $controller = new productsController();
             $controller->updateProduct($parametro[1]);
             break;
         case 'deleteProd':
-            $controller = new clothesController();
+            $controller = new productsController();
             $controller->deleteProduct($parametro[1]);
             break;
         case 'addProd':
-            $controller = new clothesController();
+            $controller = new productsController();
             $controller->newProduct();
             break;
         case 'login':

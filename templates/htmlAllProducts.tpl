@@ -15,13 +15,14 @@
         <li class="list-group-item articles">{$item->descripcion}</li>
         <li class="list-group-item articles">Talle:{$item->talle}</li>
         <li class="list-group-item articles">${$item->precio}</li>
+        <img src="img/{$item->imagen}" alt="{$item->tipo}" class="imgProd">
         <li class="list-group-item articles" value="{$item->id_tienda}">{$item->nombre}</li>
         <a href='product/{$item->id_ropa}' class='btn btn-secondary'>Ver</a>
         {if $admin == true}
           <a href='deleteProd/{$item->id_ropa}' class='btn btn-secondary'><button>Eliminar</button></a>
           <a href='editProduct/{$item->id_ropa}' class='btn btn-secondary'><button>Editar</button></a>
         {/if}
-      </ul>
+        </ul>
       </div>
   {/foreach}
 </div>

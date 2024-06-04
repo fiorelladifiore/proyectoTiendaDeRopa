@@ -207,7 +207,7 @@ button {
     display: block;
     padding: 10px 10px;
     margin: auto auto;
-    font-size: 1em;
+    /* font-size: 1em; */
     cursor: pointer;
     background-color: #c04040;
     color: white;
@@ -255,4 +255,9 @@ button {
 .btn-login {
     margin: auto auto;
     padding-right: 10px;
+}
+
+.imgProd{
+    width: 200px;
+    height: 200px;
 }

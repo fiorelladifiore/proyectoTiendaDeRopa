@@ -59,12 +59,23 @@ class model{
             `email` varchar(250) NOT NULL
             );
 
+            CREATE TABLE `users` (
+            `id_user` int(11) NOT NULL,
+            `username` varchar(100) NOT NULL,
+            `password` varchar(150) NOT NULL,
+            `role` varchar(100) NOT NULL
+            );
+
                 ALTER TABLE `ropa`
                 ADD PRIMARY KEY (`id_ropa`),
                 ADD KEY `FK_ROPA_TIENDA` (`id_tienda`);
 
                 ALTER TABLE `tienda`
                 ADD PRIMARY KEY (`id_tienda`);
+
+                ALTER TABLE `users`
+                ADD PRIMARY KEY (`id_user`),
+                ADD UNIQUE KEY `ak_username` (`username`);
 
                 ALTER TABLE `ropa`
                 MODIFY `id_ropa` int(11) NOT NULL AUTO_INCREMENT;
@@ -74,6 +85,9 @@ class model{
 
                 ALTER TABLE `ropa`
                 ADD CONSTRAINT `FK_ROPA_TIENDA` FOREIGN KEY (`id_tienda`) REFERENCES `tienda` (`id_tienda`);
+
+                ALTER TABLE `users`
+                MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
                 COMMIT;
         
         ";

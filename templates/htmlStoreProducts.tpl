@@ -11,7 +11,6 @@
       <li class="list-group-item articles">Talle:{$storeP->talle}</li>
       <li class="list-group-item articles">${$storeP->precio}</li>
     </ul>
-  <button class="buttonVermas">Ver mas</button>
   </div>
 </div>
 {/foreach}

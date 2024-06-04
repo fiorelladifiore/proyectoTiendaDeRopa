@@ -1,7 +1,7 @@
 {include "htmlStart.tpl"}
 
 {if $admin == true}
-{include "htmlAddProdForm.tpl"}
+{include "htmlAddStoreForm.tpl"}
 {/if}
 
 {foreach $stores as $store }

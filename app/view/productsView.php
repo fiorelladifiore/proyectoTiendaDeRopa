@@ -2,13 +2,13 @@
 
 require_once "view.php";
 
-class clothesView extends view{
+class productsView extends view{
 
-  function showClothes($stores, $products){ 
+  function showProducts($stores, $products){ 
 
     $this->smarty->assign("products", $products);
     $this->smarty->assign("stores", $stores);
-    $this->smarty->display("htmlClothes.tpl");
+    $this->smarty->display("htmlAllProducts.tpl");
 }
 
 function showStoreProd($storePS){
