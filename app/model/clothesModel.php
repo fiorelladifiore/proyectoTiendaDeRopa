@@ -51,6 +51,24 @@ class clothesModel extends model{
             $stores = $sentencia->fetchAll(PDO::FETCH_OBJ);
             return $stores;
         }
+
+        function getProd($id){
+            $db = $this->getConnection();
+
+            $sentence = $db->prepare("SELECT * FROM ropa WHERE id_ropa = ?");
+            $sentence->execute([$id]);
+            $prod = $sentence->fetch(PDO::FETCH_OBJ);
+            return $prod; 
+    }
+
+// FUNCION NUEVA EDITAR ROPA
+        function updateProduct($tipo, $descripcion, $talle, $precio, $id_ropa){
+            $db = $this->getConnection();
+    
+            $resultado= $db->prepare("UPDATE ropa SET tipo=?, descripcion=?, talle=?, precio=? WHERE id_ropa = ?");
+            $resultado->execute([$tipo, $descripcion, $talle, $precio, $id_ropa]);
+        }
+
     }
 
 

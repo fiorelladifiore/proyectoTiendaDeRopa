@@ -53,6 +53,14 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $controller = new clothesController();
             $controller->showingProduct($parametro[1]);
             break;
+        case 'editProduct':
+            $controller = new clothesController();
+            $controller->editProduct($parametro[1]);
+            break;
+        case 'updateProduct':
+            $controller = new clothesController();
+            $controller->updateProduct($parametro[1]);
+            break;
         case 'deleteProd':
             $controller = new clothesController();
             $controller->deleteProduct($parametro[1]);

@@ -26,4 +26,9 @@ function showStoresOnAddForm($stores){
   $this->smarty->display("htmlAddProdForm.tpl");
 }
 
+function showEditFormProduct($prod){
+  $this->smarty->assign("prod", $prod);
+  $this->smarty->display("htmlEditProductForm.tpl");
+}
+
 }

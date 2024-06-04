@@ -64,12 +64,31 @@ class clothesController {
             }
         }
     }
+
+    function editProduct($id){
+        $product = $this->model->getProd($id);
+        $this->view->showEditFormProduct($product);
+    }
+
+    function updateProduct(){
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            if(!empty($_POST['tipo']) && !empty($_POST['descripcion'])&&
+            isset($_POST['talle']) && !empty($_POST['precio'])
+            ){
+                $tipo = $_POST['tipo'];
+                $descripcion = $_POST['descripcion'];
+                $talle = $_POST['talle'];
+                $precio = $_POST['precio'];
+                $id_ropa = $_POST['id_ropa'];
+                $this->model->updateProduct($tipo, $descripcion, $talle, $precio, $id_ropa);
+                header("Location:".BASE_URL."products");             
+
+            }else{
+                $this->err->showErr("Faltan datos");    
+            }
+        }
+    }
     
-
-
-
-
-
 }
 
 
