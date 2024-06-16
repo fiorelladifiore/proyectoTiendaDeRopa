@@ -18,6 +18,17 @@
 <label class="form-label">Precio</label>
 <input type="number" name="precio" class="form-control" value="{$prod->precio}">
 </div>
+<div class="mb-3">
+<label class="form-label">Tienda a la que pertenece</label>
+<select  name="id_tienda" class="form-select">
+<option value="{$prod->id_tienda}">{$prod->nombre}</option>
+   {foreach $stores as $store}
+    {if $store->id_tienda != $prod->id_tienda}
+        <option value="{$store->id_tienda}">{$store->nombre}</option>
+    {/if}
+    {/foreach}
+ </select>
+</div>
 
 <input type="text" name="id_ropa" class="form-control" value="{$prod->id_ropa}" hidden>
 

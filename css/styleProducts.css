@@ -5,6 +5,8 @@ body {
 .product{
   justify-content: center;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 15px;
   margin: 50px 50px;
   text-align: justify;
@@ -40,4 +42,8 @@ body {
 .list-group-item{
   background-color: rgb(231, 195, 195);
   border: 1px solid;
+}
+
+.nodata{
+  margin: 9% auto;
 }

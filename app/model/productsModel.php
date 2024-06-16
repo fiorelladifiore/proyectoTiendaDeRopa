@@ -31,6 +31,15 @@ class productsModel extends model{
         return $product;
     }
 
+    function getProductEdit($id){
+        $db = $this->getConnection();
+
+        $sentencia = $db->prepare("SELECT *, t.id_tienda, t.nombre FROM ropa r JOIN tienda t ON r.id_tienda = t.id_tienda WHERE r.id_ropa = ?");
+        $sentencia->execute([$id]);
+        $product= $sentencia->fetch(PDO::FETCH_OBJ);
+        return $product;
+    }
+
     function deleteProduct($id){
         $db = $this->getConnection();
         $resultado=$db->prepare("DELETE FROM ropa WHERE id_ropa=?");
@@ -53,20 +62,11 @@ class productsModel extends model{
         return $stores;
     }
 
-     function getProd($id){
+    function updateProduct($tipo, $descripcion, $talle, $precio, $id_tienda, $id_ropa){
         $db = $this->getConnection();
-
-         $sentence = $db->prepare("SELECT * FROM ropa WHERE id_ropa = ?");
-         $sentence->execute([$id]);
-         $prod = $sentence->fetch(PDO::FETCH_OBJ);
-         return $prod; 
-     }
-
-     function updateProduct($tipo, $descripcion, $talle, $precio, $id_ropa){
-         $db = $this->getConnection();
     
-         $resultado= $db->prepare("UPDATE ropa SET tipo=?, descripcion=?, talle=?, precio=? WHERE id_ropa = ?");
-         $resultado->execute([$tipo, $descripcion, $talle, $precio, $id_ropa]);
+        $resultado= $db->prepare("UPDATE ropa SET tipo=?, descripcion=?, talle=?, precio=?, id_tienda=? WHERE id_ropa = ?");
+        $resultado->execute([$tipo, $descripcion, $talle, $precio, $id_tienda, $id_ropa]);
      }
 
 

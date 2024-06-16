@@ -72,8 +72,9 @@ class productsController {
               
 
     function editProduct($id){
-        $product = $this->model->getProd($id);
-        $this->view->showEditFormProduct($product);
+        $stores = $this->storesModel->getAll();
+        $product = $this->model->getProductEdit($id);
+        $this->view->showEditFormProduct($product, $stores);
     }
 
     function updateProduct(){
@@ -86,7 +87,8 @@ class productsController {
                 $talle = $_POST['talle'];
                 $precio = $_POST['precio'];
                 $id_ropa = $_POST['id_ropa'];
-                $this->model->updateProduct($tipo, $descripcion, $talle, $precio, $id_ropa);
+                $id_tienda = $_POST['id_tienda'];
+                $this->model->updateProduct($tipo, $descripcion, $talle, $precio, $id_tienda, $id_ropa);
                 header("Location:".BASE_URL."products");             
 
             }else{
