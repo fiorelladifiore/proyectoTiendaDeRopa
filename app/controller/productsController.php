@@ -58,17 +58,21 @@ class productsController {
                     if (move_uploaded_file($tmp_name, $destination)) {
                         $this->model->addProduct($tipo, $descripcion, $talle, $precio, $id_tienda, $imagen);
                         header("Location: " . BASE_URL . "products");
-                        }else{
-                        $this->err->showErr("Ocurrió un error con la conexión");
-                        }
                     }else{
-                    $this->err->showErr("Formato de imagen incorrecto");
-                    }   
+                        $this->err->showErr("Ocurrió un error de imagen");
+                        }
                 }else{
-                    $this->err->showErr("Faltan datos");
-                    }
-                }
-              }
+                    $this->model->addProduct($tipo, $descripcion, $talle, $precio, $id_tienda);
+                    header("Location: " . BASE_URL . "products");
+                }   
+            }else{
+                $this->err->showErr("Faltan datos");
+            }
+        }else{
+            $this->err->showErr("Error de servidor");
+            }
+              
+    }
               
 
     function editProduct($id){
