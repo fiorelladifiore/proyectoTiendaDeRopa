@@ -10,7 +10,11 @@
         <li class="list-group-item articles">{$item->descripcion}</li>
         <li class="list-group-item articles">Talle:{$item->talle}</li>
         <li class="list-group-item articles">${$item->precio}</li>
-        <img src="img/{$item->imagen}" alt="{$item->tipo}" class="imgProd">
+        {if $item->imagen}
+          <img src="img/{$item->imagen}" alt="{$item->tipo}" class="imgProd">
+          {else}
+          <li class="imgcontainer">Urban clothing ™</li>
+          {/if}
         <li class="list-group-item articles" value="{$item->id_tienda}">{$item->nombre}</li>
       </ul>
     </div>

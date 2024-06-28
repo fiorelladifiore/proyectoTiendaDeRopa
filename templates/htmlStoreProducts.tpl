@@ -12,7 +12,11 @@
       <li class="list-group-item articles">{$storeP->tipo}</li>
       <li class="list-group-item articles">{$storeP->descripcion}</li>
       <li class="list-group-item articles">Talle:{$storeP->talle}</li>
+      {if $storeP->imagen}
       <img src="img/{$storeP->imagen}" alt="{$storeP->tipo}" class="imgProd">
+      {else}
+        <li class="imgcontainer">Urban clothing ™</li>
+      {/if}
       <li class="list-group-item articles">${$storeP->precio}</li>
       </ul>
     </div>
